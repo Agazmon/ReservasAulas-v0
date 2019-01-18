@@ -1,9 +1,9 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 
 public class Reserva {
-	private Profesor profesorR;
-	private Aula aulaR;
-	private Permanencia permanenciaR;
+	private Profesor profesorReserva;
+	private Aula aulaReserva;
+	private Permanencia permanenciaReserva;
 
 	public Reserva(Profesor profesor, Aula aula, Permanencia permanencia) {
 		setProfesor(profesor);
@@ -15,52 +15,52 @@ public class Reserva {
 		if (reserva == null) {
 			throw new IllegalArgumentException("No se puede copiar una reserva nula.");
 		}
-		setProfesor(reserva.profesorR);
-		setAula(reserva.aulaR);
-		setPermanencia(reserva.permanenciaR);
+		setProfesor(reserva.profesorReserva);
+		setAula(reserva.aulaReserva);
+		setPermanencia(reserva.permanenciaReserva);
 	}
 
 	private void setProfesor(Profesor profesor) {
 		if (profesor == null) {
 			throw new IllegalArgumentException("La reserva debe estar a nombre de un profesor.");
 		} else {
-			profesorR = new Profesor(profesor);
+			profesorReserva = new Profesor(profesor);
 		}
 	}
 
 	public Profesor getProfesor() {
-		return new Profesor(profesorR);
+		return new Profesor(profesorReserva);
 	}
 
 	private void setAula(Aula aula) {
 		if (aula == null) {
 			throw new IllegalArgumentException("La reserva debe ser para un aula concreta.");
 		} else {
-			aulaR = new Aula(aula);
+			aulaReserva = new Aula(aula);
 		}
 	}
 
 	public Aula getAula() {
-		return new Aula(aulaR);
+		return new Aula(aulaReserva);
 	}
 
 	private void setPermanencia(Permanencia permanencia) {
 		if (permanencia==null) {
 			throw new IllegalArgumentException("La reserva se debe hacer para una permanencia concreta.");
 		} else {
-			permanenciaR = new Permanencia(permanencia);
+			permanenciaReserva = new Permanencia(permanencia);
 		}
 	}
 	public Permanencia getPermanencia() {
-		return new Permanencia(permanenciaR);
+		return new Permanencia(permanenciaReserva);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((aulaR == null) ? 0 : aulaR.hashCode());
-		result = prime * result + ((permanenciaR == null) ? 0 : permanenciaR.hashCode());
+		result = prime * result + ((aulaReserva == null) ? 0 : aulaReserva.hashCode());
+		result = prime * result + ((permanenciaReserva == null) ? 0 : permanenciaReserva.hashCode());
 		return result;
 	}
 
@@ -73,22 +73,22 @@ public class Reserva {
 		if (getClass() != obj.getClass())
 			return false;
 		Reserva other = (Reserva) obj;
-		if (aulaR == null) {
-			if (other.aulaR != null)
+		if (aulaReserva == null) {
+			if (other.aulaReserva != null)
 				return false;
-		} else if (!aulaR.equals(other.aulaR))
+		} else if (!aulaReserva.equals(other.aulaReserva))
 			return false;
-		if (permanenciaR == null) {
-			if (other.permanenciaR != null)
+		if (permanenciaReserva == null) {
+			if (other.permanenciaReserva != null)
 				return false;
-		} else if (!permanenciaR.equals(other.permanenciaR))
+		} else if (!permanenciaReserva.equals(other.permanenciaReserva))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "[profesor=" + profesorR + ", aula=" + aulaR + ", permanencia=" + permanenciaR + "]";
+		return "[profesor=" + profesorReserva + ", aula=" + aulaReserva + ", permanencia=" + permanenciaReserva + "]";
 	}
 	
 }
