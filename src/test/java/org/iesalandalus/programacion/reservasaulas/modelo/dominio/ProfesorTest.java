@@ -1,13 +1,16 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
+
 public class ProfesorTest {
-	/*
+
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	private static final String nombre = "José Ramón";
 	private static final String correo = "joseramon.jimenez@iesalandalus.org";
 	private static final String telefono = "950112233";
-	
+
 	Profesor profesorConTelefono = new Profesor(nombre, correo, telefono);
 	Profesor profesorSinTelefono = new Profesor(nombre, correo);
 
@@ -23,7 +26,7 @@ public class ProfesorTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void constructorTresParametrosValidoTest() {
 		Profesor profesor = null;
@@ -44,7 +47,7 @@ public class ProfesorTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void constructorDosParametrosNoValidoTest() {
 		Profesor profesor = null;
@@ -77,7 +80,7 @@ public class ProfesorTest {
 			assertNull(profesor);
 		}
 	}
-	
+
 	@Test
 	public void constructorTresParametrosNoValidoTest() {
 		Profesor profesor = null;
@@ -89,7 +92,7 @@ public class ProfesorTest {
 			assertNull(profesor);
 		}
 	}
-	
+
 	@Test
 	public void constructorCopiaValidoTest() {
 		Profesor profesor;
@@ -102,7 +105,7 @@ public class ProfesorTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void constructorCopiaNoValidoTest() {
 		Profesor profesor = null;
@@ -114,7 +117,7 @@ public class ProfesorTest {
 			assertNull(profesor);
 		}
 	}
-	
+
 	@Test
 	public void getTest() {
 		assertEquals(nombre, profesorConTelefono.getNombre());
@@ -122,7 +125,7 @@ public class ProfesorTest {
 		assertEquals(telefono, profesorConTelefono.getTelefono());
 		assertNull(profesorSinTelefono.getTelefono());
 	}
-	
+
 	@Test
 	public void equalTest() {
 		Profesor profesor = new Profesor(nombre, correo, telefono);
@@ -133,7 +136,7 @@ public class ProfesorTest {
 		assertEquals(profesorConTelefono, profesor);
 		assertNotEquals(profesor, profesor1);
 	}
-	
+
 	@Test
 	public void hashCodeTest() {
 		Profesor profesor = new Profesor(nombre, correo, telefono);
@@ -142,11 +145,12 @@ public class ProfesorTest {
 		assertEquals(profesorConTelefono.hashCode(), profesor.hashCode());
 		assertNotEquals(profesor.hashCode(), profesor1.hashCode());
 	}
-	
+
 	@Test
 	public void toStringTest() {
-		assertEquals("[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org, telefono=950112233]", profesorConTelefono.toString());
+		assertEquals("[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org, telefono=950112233]",
+				profesorConTelefono.toString());
 		assertEquals("[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org]", profesorSinTelefono.toString());
 	}
-*/
+
 }
