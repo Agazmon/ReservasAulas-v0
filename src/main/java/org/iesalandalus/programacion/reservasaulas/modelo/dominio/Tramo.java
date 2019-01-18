@@ -1,19 +1,16 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 
 public enum Tramo {
-	MANANA, TARDE;
+	MANANA("Mañana"), TARDE("Tarde");
 	private String cadenaAMostrar;
-	private void Tramo(String tramoPasado){
-		if(tramoPasado.equals(MANANA)) {
-			cadenaAMostrar="Mañana";
-		} else {
-			cadenaAMostrar="Tarde";
-		}
-		
+
+	private Tramo(String cadenaAMostrar) {
+		this.cadenaAMostrar = cadenaAMostrar;
+
 	}
-	   
-	   public String toString() {
-	       return cadenaAMostrar;
-	   }
-	
+
+	@Override
+	public String toString() {
+		return cadenaAMostrar;
+	}
 }

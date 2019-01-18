@@ -1,7 +1,13 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 
+import static org.junit.Assert.*;
+
+import java.time.LocalDate;
+
+import org.junit.Test;
+
 public class PermanenciaTest {
-	/*
+	
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	
@@ -94,5 +100,5 @@ public class PermanenciaTest {
 	public void toStringTest() {
 		assertEquals("[dia=01/12/2018, tramo=Mañana]", permanencia.toString());
 	}
-*/
+
 }
