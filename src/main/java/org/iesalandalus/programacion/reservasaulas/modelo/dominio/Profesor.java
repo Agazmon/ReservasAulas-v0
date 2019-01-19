@@ -1,7 +1,7 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 
 public class Profesor {
-	private static final String ER_TELEFONO = "\\d{9}";
+	private static final String ER_TELEFONO = "[6|9]\\d{8}";
 	private static final String ER_CORREO = "\\w+(?:\\.\\w+)*@\\w+\\.\\w{2,5}";
 	private String nombre;
 	private String correo;
