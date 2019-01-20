@@ -29,7 +29,7 @@ public class Aulas {
 
 	private Aula[] copiaProfundaAulas(Aula[] arrayAula) {
 		Aula[] aulasCopia = new Aula[arrayAula.length];
-		for (int i = 0; (i < arrayAula.length) && arrayAula[i]!=null; i++) {
+		for (int i = 0; (i < arrayAula.length) && arrayAula[i] != null; i++) {
 			aulasCopia[i] = new Aula(arrayAula[i]);
 		}
 		return aulasCopia;
@@ -49,7 +49,7 @@ public class Aulas {
 		} else {
 			int indice = buscarIndiceAula(aula);
 			if (!indiceNoSuperaTamano(indice)) {
-				coleccionAulas[indice]= new Aula(aula);
+				coleccionAulas[indice] = new Aula(aula);
 				numAulas++;
 			} else {
 				if (!indiceNoSuperaCapacidad(indice)) {
@@ -68,7 +68,7 @@ public class Aulas {
 		boolean comprobacion = false;
 		while (indiceNoSuperaTamano(indiceAula) && !comprobacion) {
 			if (coleccionAulas[indiceAula].equals(aula)) {
-				comprobacion=true;
+				comprobacion = true;
 			} else {
 				indiceAula++;
 			}
@@ -85,12 +85,12 @@ public class Aulas {
 	}
 
 	public Aula buscar(Aula aula) {
-		if (aula==null) {
+		if (aula == null) {
 			return null;
-			//throw new IllegalArgumentException("No puedes buscar una aula nula");
+			// throw new IllegalArgumentException("No puedes buscar una aula nula");
 		}
-		int indice=buscarIndiceAula(aula);
-		if(indiceNoSuperaTamano(indice)) {
+		int indice = buscarIndiceAula(aula);
+		if (indiceNoSuperaTamano(indice)) {
 			return new Aula(coleccionAulas[indice]);
 		} else {
 			return null;
@@ -98,12 +98,12 @@ public class Aulas {
 	}
 
 	public void borrar(Aula aula) throws OperationNotSupportedException {
-		if (aula==null) {
+		if (aula == null) {
 			throw new IllegalArgumentException("No se puede borrar un aula nula.");
 		}
-		int indice=buscarIndiceAula(aula);
+		int indice = buscarIndiceAula(aula);
 		if (indiceNoSuperaTamano(indice)) {
-			coleccionAulas[indice]=null;
+			coleccionAulas[indice] = null;
 			desplazarUnaPosicionHaciaIzquierda(indice);
 			numAulas--;
 		} else {
@@ -112,11 +112,11 @@ public class Aulas {
 	}
 
 	private void desplazarUnaPosicionHaciaIzquierda(int indice) {
-		for (int i=indice;i<numAulas|!indiceNoSuperaCapacidad(i);i++) {
+		for (int i = indice; i < numAulas | !indiceNoSuperaCapacidad(i); i++) {
 			if (indiceNoSuperaTamano(indice)) {
-				if (coleccionAulas[i+1]!=null) {
-					coleccionAulas[i]=new Aula(coleccionAulas[i+1]);
-					coleccionAulas[i+1]=null;
+				if (coleccionAulas[i + 1] != null) {
+					coleccionAulas[i] = new Aula(coleccionAulas[i + 1]);
+					coleccionAulas[i + 1] = null;
 				}
 			}
 		}
