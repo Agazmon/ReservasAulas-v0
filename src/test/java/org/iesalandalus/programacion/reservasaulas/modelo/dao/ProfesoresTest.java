@@ -1,7 +1,14 @@
 package org.iesalandalus.programacion.reservasaulas.modelo.dao;
 
+import static org.junit.Assert.*;
+
+import javax.naming.OperationNotSupportedException;
+
+import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
+import org.junit.Test;
+
 public class ProfesoresTest {
-/*	
+
 	private static final String NOMBRE_PROFESOR1 = "José Ramón";
 	private static final String NOMBRE_PROFESOR2 = "Andrés";
 	private static final String NOMBRE_PROFESOR3 = "Begoña";
@@ -10,7 +17,7 @@ public class ProfesoresTest {
 	private static final String CORREO_PROFESOR3 = "c@d.ee";
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
-	
+
 	private final Profesor profesor1 = new Profesor(NOMBRE_PROFESOR1, CORREO_PROFESOR1);
 	private final Profesor profesor2 = new Profesor(NOMBRE_PROFESOR2, CORREO_PROFESOR2);
 	private final Profesor profesor3 = new Profesor(NOMBRE_PROFESOR3, CORREO_PROFESOR3);
@@ -20,7 +27,7 @@ public class ProfesoresTest {
 		Profesores profesores = new Profesores();
 		assertEquals(0, profesores.getNumProfesores());
 	}
-	
+
 	@Test
 	public void constructorCopiaValidoTest() {
 		Profesores profesores1 = new Profesores();
@@ -29,7 +36,7 @@ public class ProfesoresTest {
 		assertEquals(0, profesores2.getNumProfesores());
 		assertNotEquals(profesores1.getProfesores(), profesores2.getProfesores());
 	}
-	
+
 	@Test
 	public void constructorCopiaNoValidoTest() {
 		Profesores profesores = null;
@@ -42,7 +49,7 @@ public class ProfesoresTest {
 			assertNull(profesores1);
 		}
 	}
-	
+
 	@Test
 	public void insertarUnoValidoTest() {
 		Profesores profesores = new Profesores();
@@ -54,7 +61,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void insertarNuloTest() {
 		Profesores profesores = new Profesores();
@@ -68,7 +75,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void insertarRepetidoTest() {
 		Profesores profesores = new Profesores();
@@ -81,7 +88,7 @@ public class ProfesoresTest {
 			assertEquals(1, profesores.getNumProfesores());
 		}
 	}
-	
+
 	@Test
 	public void insertarTresValidoTest() {
 		Profesores profesores = new Profesores();
@@ -103,7 +110,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void getProfesoresTest() {
 		Profesores profesores = new Profesores();
@@ -117,7 +124,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	private Profesores insertarTres() {
 		Profesores profesores = new Profesores();
 		try {
@@ -129,7 +136,7 @@ public class ProfesoresTest {
 		}
 		return profesores;
 	}
-	
+
 	@Test
 	public void borrarPrincipioValidoTest() {
 		Profesores profesores = insertarTres();
@@ -144,7 +151,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void borrarMedioValidoTest() {
 		Profesores profesores = insertarTres();
@@ -159,7 +166,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void borrarFinalValidoTest() {
 		Profesores profesores = insertarTres();
@@ -174,7 +181,7 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void borrarNuloTest() {
 		Profesores profesores = insertarTres();
@@ -188,12 +195,12 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void borrarNoValidoTest() {
 		Profesores profesores = insertarTres();
 		try {
-			Profesor profesor = new Profesor("Profesor 4","d@e.ff");
+			Profesor profesor = new Profesor("Profesor 4", "d@e.ff");
 			profesores.borrar(profesor);
 			fail(ERROR_EXCEPCION);
 		} catch (OperationNotSupportedException e) {
@@ -201,7 +208,7 @@ public class ProfesoresTest {
 			assertEquals(3, profesores.getNumProfesores());
 		}
 	}
-	
+
 	@Test
 	public void borrarInsertarTest() {
 		Profesores profesores = insertarTres();
@@ -220,13 +227,13 @@ public class ProfesoresTest {
 			fail(ERROR_NO_EXCEPCION);
 		}
 	}
-	
+
 	@Test
 	public void buscarNuloTest() {
 		Profesores profesores = insertarTres();
 		assertNull(profesores.buscar(null));
 	}
-	
+
 	@Test
 	public void representarTest() {
 		Profesores profesores = insertarTres();
@@ -235,5 +242,5 @@ public class ProfesoresTest {
 		assertEquals(profesor2.toString(), representacion[1]);
 		assertEquals(profesor3.toString(), representacion[2]);
 	}
-*/
+
 }
