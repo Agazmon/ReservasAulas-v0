@@ -98,7 +98,7 @@ public enum Opcion {
 	protected static void setVista(IUTextual vista) {
 		Opcion.vista = vista;
 	}
-
+	@Override
 	public String toString() {
 		return String.format("%d.-%s,", ordinal(), getMensaje());
 	}
