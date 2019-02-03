@@ -87,7 +87,6 @@ public class Aulas {
 	public Aula buscar(Aula aula) {
 		if (aula == null) {
 			return null;
-			// throw new IllegalArgumentException("No puedes buscar una aula nula");
 		}
 		int indice = buscarIndiceAula(aula);
 		if (indiceNoSuperaTamano(indice)) {
