@@ -38,8 +38,10 @@ public class IUTextual {
 			Aula aula = Consola.leerAula();
 			modelo.insertarAula(aula);
 			System.out.println("La Aula proporcionada ha sido añadida al sistema.");
+			comenzar();
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -49,8 +51,10 @@ public class IUTextual {
 			Aula aula = Consola.leerAula();
 			modelo.borrarAula(aula);
 			System.out.println("La Aula ha sido borrada del sistema");
+			comenzar();
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -60,23 +64,33 @@ public class IUTextual {
 			Aula aula = modelo.buscarAula(Consola.leerAula());
 			if (aula != null) {
 				System.out.println("El aula encontrada es: " + aula);
+				comenzar();
 			} else {
 				System.out.println("Aula no encontrada en el sistema.");
+				comenzar();
 			}
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
 	public void listarAulas() {
 		Consola.mostrarCabecera("Listar Aulas");
+		try {
 		String[] aulas = modelo.representarAulas();
 		if (modelo.getNumAulas() > 0) {
 			for (String aula : aulas) {
 				System.out.println(aula);
+				comenzar();
 			}
 		} else {
 			System.out.println("No existen aulas para listar actualmente");
+			comenzar();
+			}
+		}catch (IllegalArgumentException | UnsupportedOperationException e) {
+			System.out.println(ERROR+e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -88,6 +102,7 @@ public class IUTextual {
 			System.out.println("Profesor/a proporcionado/a ha sido añadido/a al sistema.");
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -99,6 +114,7 @@ public class IUTextual {
 			System.out.println("Profesor/a proporcionado/a ha sido borrado/a del sistema");
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -108,8 +124,10 @@ public class IUTextual {
 		modelo.buscarProfesor(profesor);
 		if (profesor == null) {
 			System.out.println("Profesor/a proporcionado/a no encontrado en el sistema.");
+			comenzar();
 		} else {
 			System.out.println(profesor);
+			comenzar();
 		}
 	}
 
@@ -120,9 +138,11 @@ public class IUTextual {
 			for (String profesor : profesores) {
 				System.out.println(profesor);
 			}
+			comenzar();
 		} else {
 			System.out.println("No existen profesores para listar actualmente.");
 		}
+		comenzar();
 	}
 
 	public void realizarReserva() {
@@ -136,11 +156,14 @@ public class IUTextual {
 				modelo.realizarReserva(reserva);
 				System.out.println("La reserva ha sido realizada y añadida al sistema.");
 				System.out.println("Los datos de la reserva son" + reserva.toString());
+				comenzar();
 			} else {
 				System.out.println("Ya hay una reserva realizada en este tramo");
+				comenzar();
 			}
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -165,8 +188,10 @@ public class IUTextual {
 			Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
 			Reserva reservaAnular = new Reserva(profesor, aula, permanencia);
 			modelo.anularReserva(reservaAnular);
+			comenzar();
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
+			comenzar();
 		}
 	}
 
@@ -177,8 +202,10 @@ public class IUTextual {
 			for (String reserva : reservas) {
 				System.out.println(reserva);
 			}
+			comenzar();
 		} else {
 			System.out.println("No existen reservas para listar actualmente");
+			comenzar();
 		}
 	}
 
@@ -191,11 +218,14 @@ public class IUTextual {
 				for (Reserva reserva : reservaAula) {
 					System.out.println(reserva.toString());
 				}
+				comenzar();
 			} else {
 				System.out.println("No existen reservas para la aula");
+				comenzar();
 			}
 		} else {
 			System.out.println("No existen reservas para listar actualmente");
+			comenzar();
 		}
 
 	}
@@ -209,11 +239,14 @@ public class IUTextual {
 				for (Reserva reserva : reservaProfesor) {
 					System.out.println(reserva.toString());
 				}
+				comenzar();
 			} else {
 				System.out.println("No existen reservas para el profesor");
+				comenzar();
 			}
 		} else {
 			System.out.println("No existen reservas para listar actualmente");
+			comenzar();
 		}
 	}
 
@@ -226,11 +259,14 @@ public class IUTextual {
 				for (Reserva reserva : reservaPermanencia) {
 					System.out.println(reserva.toString());
 				}
+				comenzar();
 			} else {
 				System.out.println("No existen reservas para la permanencia.");
+				comenzar();
 			}
 		} else {
 			System.out.println("No existen reservas para listar actualmente");
+			comenzar();
 		}
 	}
 
@@ -238,8 +274,10 @@ public class IUTextual {
 		if (modelo.consultarDisponibilidad(Consola.leerAula(),
 				new Permanencia(Consola.leerDia(), Consola.leerTramo()))) {
 			System.out.println("El Aula esta disponible en el tramo solicitado.");
+			comenzar();
 		} else {
 			System.out.println("El Aula no esta disponible en el tramo solicitado.");
+			comenzar();
 		}
 	}
 }
