@@ -78,18 +78,18 @@ public class IUTextual {
 	public void listarAulas() {
 		Consola.mostrarCabecera("Listar Aulas");
 		try {
-		String[] aulas = modelo.representarAulas();
-		if (modelo.getNumAulas() > 0) {
-			for (String aula : aulas) {
-				System.out.println(aula);
+			String[] aulas = modelo.representarAulas();
+			if (modelo.getNumAulas() > 0) {
+				for (String aula : aulas) {
+					System.out.println(aula);
+					comenzar();
+				}
+			} else {
+				System.out.println("No existen aulas para listar actualmente");
 				comenzar();
 			}
-		} else {
-			System.out.println("No existen aulas para listar actualmente");
-			comenzar();
-			}
-		}catch (IllegalArgumentException | UnsupportedOperationException e) {
-			System.out.println(ERROR+e.getMessage());
+		} catch (IllegalArgumentException | UnsupportedOperationException e) {
+			System.out.println(ERROR + e.getMessage());
 			comenzar();
 		}
 	}
@@ -109,9 +109,9 @@ public class IUTextual {
 	public void borrarProfesor() {
 		Consola.mostrarCabecera("Borrar Profesor/a");
 		try {
-			Profesor profesor = Consola.leerProfesor();
-			modelo.borrarProfesor(profesor);
-			System.out.println("Profesor/a proporcionado/a ha sido borrado/a del sistema");
+			Profesor profesorBorrar = modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), CORREO_VALIDO));
+			modelo.borrarProfesor(profesorBorrar);
+			System.out.println("Profesor/a proporcionado/a ha sido borrado/a del sistema");				
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
 			comenzar();
@@ -120,15 +120,14 @@ public class IUTextual {
 
 	public void buscarProfesor() {
 		Consola.mostrarCabecera("Buscar Profesor/a");
-		Profesor profesor = Consola.leerProfesor();
-		modelo.buscarProfesor(profesor);
-		if (profesor == null) {
-			System.out.println("Profesor/a proporcionado/a no encontrado en el sistema.");
-			comenzar();
-		} else {
-			System.out.println(profesor);
+		Profesor profesorEncontrado = modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), CORREO_VALIDO));
+		if (profesorEncontrado != null) {
+			System.out.println(profesorEncontrado);
+		}else {
+			System.out.println("Profesor/a proporcionado/a no ha sido encontrado/a del sistema");
 			comenzar();
 		}
+	
 	}
 
 	public void listarProfesores() {
@@ -183,8 +182,9 @@ public class IUTextual {
 	public void anularReserva() {
 		Consola.mostrarCabecera("Anula Reserva");
 		try {
-			Profesor profesor = Consola.leerProfesor();
-			Aula aula = Consola.leerAula();
+			Profesor profesor = new Profesor(
+					modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), CORREO_VALIDO)));
+			Aula aula = modelo.buscarAula(new Aula(Consola.leerNombreAula()));
 			Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
 			Reserva reservaAnular = new Reserva(profesor, aula, permanencia);
 			modelo.anularReserva(reservaAnular);
@@ -216,7 +216,11 @@ public class IUTextual {
 		if (modelo.getNumReservas() > 0) {
 			if (reservaAula[0] != null) {
 				for (Reserva reserva : reservaAula) {
-					System.out.println(reserva.toString());
+					try {
+						System.out.println(reserva.toString());
+					} catch (Exception e) {
+						comenzar();
+					}
 				}
 				comenzar();
 			} else {
@@ -232,12 +236,17 @@ public class IUTextual {
 
 	public void listarReservasProfesor() {
 		Consola.mostrarCabecera("Listar Reservas por Profesor");
-		Profesor profesor = new Profesor(Consola.leerProfesor());
+		Profesor profesor = new Profesor(
+				modelo.buscarProfesor(new Profesor(Consola.leerNombreProfesor(), CORREO_VALIDO)));
 		Reserva[] reservaProfesor = modelo.getReservasProfesor(profesor);
 		if (modelo.getNumReservas() > 0) {
 			if (reservaProfesor[0] != null) {
-				for (Reserva reserva : reservaProfesor) {
-					System.out.println(reserva.toString());
+				for (Reserva reserva: reservaProfesor) {
+					try {
+						System.out.println(reserva.toString());
+					} catch (NullPointerException e) {
+						comenzar();
+					}
 				}
 				comenzar();
 			} else {
@@ -257,7 +266,11 @@ public class IUTextual {
 		if (modelo.getNumReservas() > 0) {
 			if (reservaPermanencia[0] != null) {
 				for (Reserva reserva : reservaPermanencia) {
-					System.out.println(reserva.toString());
+					try {
+						System.out.println(reserva.toString());
+					}catch (Exception e) {
+						comenzar();
+					}
 				}
 				comenzar();
 			} else {

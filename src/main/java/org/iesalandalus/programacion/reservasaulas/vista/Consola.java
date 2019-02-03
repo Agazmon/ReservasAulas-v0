@@ -80,13 +80,11 @@ public class Consola {
 
 	public static Tramo leerTramo() {
 		String seleccion;
-		do {
 			System.out.print("Introduce el tramo (Mañana o Tarde): ");
 			seleccion = Entrada.cadena();
-		} while (!seleccion.equals(Tramo.MANANA.toString()) | !seleccion.equals(Tramo.TARDE.toString()));
-		if (seleccion.equals(Tramo.MANANA.toString())) {
+		if (seleccion.equals("Mañana")){
 			return Tramo.MANANA;
-		} else if (seleccion.equals(Tramo.TARDE.toString())) {
+		} else if (seleccion.equals("Tarde")){
 			return Tramo.TARDE;
 		} else {
 			return null;
