@@ -19,7 +19,7 @@ public class Consola {
 	}
 
 	public static void mostrarMenu() {
-		mostrarCabecera("Bienvenido al programa de Gestión de Aulas");
+
 		for (Opcion opcion : Opcion.values()) {
 			System.out.println(opcion.toString());
 		}
@@ -63,7 +63,7 @@ public class Consola {
 		System.out.print("Introduce el telefono de el Profesor o Profesora (No obligatorio): ");
 		telefono = Entrada.cadena();
 		if (telefono.trim().equals("")) {
-			return new Profesor(nombre,correo);
+			return new Profesor(nombre, correo);
 		} else {
 			return new Profesor(nombre, correo, telefono);
 		}
