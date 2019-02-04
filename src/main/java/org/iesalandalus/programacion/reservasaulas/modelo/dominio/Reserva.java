@@ -45,12 +45,13 @@ public class Reserva {
 	}
 
 	private void setPermanencia(Permanencia permanencia) {
-		if (permanencia==null) {
+		if (permanencia == null) {
 			throw new IllegalArgumentException("La reserva se debe hacer para una permanencia concreta.");
 		} else {
 			this.permanencia = new Permanencia(permanencia);
 		}
 	}
+
 	public Permanencia getPermanencia() {
 		return new Permanencia(this.permanencia);
 	}
@@ -90,5 +91,5 @@ public class Reserva {
 	public String toString() {
 		return "[profesor=" + profesor + ", aula=" + aula + ", permanencia=" + permanencia + "]";
 	}
-	
+
 }

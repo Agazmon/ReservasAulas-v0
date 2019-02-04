@@ -160,22 +160,22 @@ public class Reservas {
 	}
 
 	public boolean consultarDisponibilidad(Aula aula, Permanencia permanencia) {
-		if(aula==null) {
+		if (aula == null) {
 			throw new IllegalArgumentException("No se puede consultar la disponibilidad de un aula nula.");
 		}
-		if(permanencia==null) {
+		if (permanencia == null) {
 			throw new IllegalArgumentException("No se puede consultar la disponibilidad de una permanencia nula.");
 		}
-		
-		Profesor profesorConsulta = new Profesor("Profesor","correo@correo.com");
+
+		Profesor profesorConsulta = new Profesor("Profesor", "correo@correo.com");
 		Reserva reservaConsulta = new Reserva(profesorConsulta, aula, permanencia);
-		for(int i=0; i<numReservas&&indiceNoSuperaTamano(i);i++) {
-			if(coleccionReservas[i].equals(reservaConsulta)) {
+		for (int i = 0; i < numReservas && indiceNoSuperaTamano(i); i++) {
+			if (coleccionReservas[i].equals(reservaConsulta)) {
 				return false;
 			} else {
 				i++;
 			}
 		}
 		return true;
-		}	
+	}
 }

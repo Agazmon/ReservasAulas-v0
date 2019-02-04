@@ -11,12 +11,12 @@ public class Permanencia {
 	private Tramo tramoPermanencia;
 
 	public Permanencia(LocalDate fechaPasada, Tramo tramoPasado) {
-			setDia(fechaPasada);
-			setTramo(tramoPasado);
+		setDia(fechaPasada);
+		setTramo(tramoPasado);
 	}
 
 	public Permanencia(Permanencia permanenciaPasada) {
-		if (permanenciaPasada==null) {
+		if (permanenciaPasada == null) {
 			throw new IllegalArgumentException("No se puede copiar una permanencia nula.");
 		}
 		setDia(permanenciaPasada.dia);
@@ -29,7 +29,7 @@ public class Permanencia {
 	}
 
 	private void setDia(LocalDate diaPasado) {
-		if (diaPasado==null) {
+		if (diaPasado == null) {
 			throw new IllegalArgumentException("El día de una permanencia no puede ser nulo.");
 		} else if (diaPasado.equals("")) {
 			throw new IllegalArgumentException("No se puede usar una fecha vacia");
@@ -43,7 +43,7 @@ public class Permanencia {
 	}
 
 	private void setTramo(Tramo tramoPasado) {
-		if (tramoPasado==null) {
+		if (tramoPasado == null) {
 			throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");
 		} else if (tramoPasado.equals(Tramo.MANANA)) {
 			this.tramoPermanencia = Tramo.MANANA;
@@ -84,7 +84,7 @@ public class Permanencia {
 
 	@Override
 	public String toString() {
-		//dia.format(FORMATO_DIA);
+		// dia.format(FORMATO_DIA);
 		return "[dia=" + dia.format(FORMATO_DIA) + ", tramo=" + tramoPermanencia + "]";
 	}
 

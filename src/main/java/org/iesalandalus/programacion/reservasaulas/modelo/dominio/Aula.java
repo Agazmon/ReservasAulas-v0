@@ -8,7 +8,7 @@ public class Aula {
 	}
 
 	public Aula(Aula aula) {
-		if (aula==null) {
+		if (aula == null) {
 			throw new IllegalArgumentException("No se puede copiar un aula nula.");
 		}
 		setNombre(aula.nombre);
@@ -23,6 +23,7 @@ public class Aula {
 			this.nombre = nombre;
 		}
 	}
+
 	public String getNombre() {
 		return new String(this.nombre);
 	}
@@ -56,5 +57,5 @@ public class Aula {
 	public String toString() {
 		return "[nombre=" + nombre + "]";
 	}
-	
+
 }

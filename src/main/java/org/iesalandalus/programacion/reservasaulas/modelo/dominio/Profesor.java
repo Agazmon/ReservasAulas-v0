@@ -96,7 +96,7 @@ public class Profesor {
 
 	@Override
 	public String toString() {
-		if (this.telefono==(null)){
+		if (this.telefono == (null)) {
 			return "[nombre=" + nombre + ", correo=" + correo + "]";
 		} else {
 			return "[nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono + "]";

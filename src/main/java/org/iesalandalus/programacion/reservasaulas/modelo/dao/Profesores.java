@@ -57,10 +57,10 @@ public class Profesores {
 				throw new OperationNotSupportedException("El profesor ya existe.");
 			} else {
 				throw new OperationNotSupportedException("No se aceptan más profesores.");
-			}		
+			}
 		}
 	}
-	
+
 	private int buscarIndiceProfesor(Profesor profesor) {
 		int indice = 0;
 		boolean profesorEncontrado = false;
@@ -73,15 +73,15 @@ public class Profesores {
 		}
 		return indice;
 	}
-	
+
 	private boolean indiceNoSuperaTamano(int indice) {
 		return indice < numProfesores;
 	}
-	
+
 	private boolean indiceNoSuperaCapacidad(int indice) {
 		return indice < MAX_PROFESORES;
 	}
-	
+
 	public Profesor buscar(Profesor profesor) {
 		int indice = 0;
 		indice = buscarIndiceProfesor(profesor);
@@ -91,7 +91,7 @@ public class Profesores {
 			return null;
 		}
 	}
-	
+
 	public void borrar(Profesor profesor) throws OperationNotSupportedException {
 		if (profesor == null) {
 			throw new IllegalArgumentException("No se puede borrar un profesor nulo.");
@@ -99,20 +99,19 @@ public class Profesores {
 		int indice = buscarIndiceProfesor(profesor);
 		if (indiceNoSuperaTamano(indice)) {
 			desplazarUnaPosicionHaciaIzquierda(indice);
-		}
-		else {
+		} else {
 			throw new OperationNotSupportedException("El profesor a borrar no existe.");
 		}
 	}
 
 	private void desplazarUnaPosicionHaciaIzquierda(int indice) {
 		for (int i = indice; i < numProfesores - 1; i++) {
-			coleccionProfesores[i] = coleccionProfesores[i+1];
+			coleccionProfesores[i] = coleccionProfesores[i + 1];
 		}
 		coleccionProfesores[numProfesores] = null;
 		numProfesores--;
 	}
-	
+
 	public String[] representar() {
 		String[] representacion = new String[numProfesores];
 		for (int i = 0; indiceNoSuperaTamano(i); i++) {
