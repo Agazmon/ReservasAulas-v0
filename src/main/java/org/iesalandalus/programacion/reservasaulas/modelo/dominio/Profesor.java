@@ -50,7 +50,7 @@ public class Profesor {
 	public void setTelefono(String telefono) {
 		if (telefono == null) {
 			this.telefono = null;
-		} else if (!telefono.matches(ER_TELEFONO) & telefono != null) {
+		} else if (!telefono.matches(ER_TELEFONO)) {
 			throw new IllegalArgumentException("El teléfono del profesor no es válido.");
 		} else {
 			this.telefono = telefono;

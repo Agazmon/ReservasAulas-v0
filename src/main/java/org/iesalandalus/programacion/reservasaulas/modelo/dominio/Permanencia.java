@@ -3,8 +3,6 @@ package org.iesalandalus.programacion.reservasaulas.modelo.dominio;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import com.google.common.base.Throwables;
-
 public class Permanencia {
 	private LocalDate dia;
 	private static final DateTimeFormatter FORMATO_DIA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -31,8 +29,6 @@ public class Permanencia {
 	private void setDia(LocalDate diaPasado) {
 		if (diaPasado == null) {
 			throw new IllegalArgumentException("El día de una permanencia no puede ser nulo.");
-		} else if (diaPasado.equals("")) {
-			throw new IllegalArgumentException("No se puede usar una fecha vacia");
 		} else {
 			dia = diaPasado;
 		}
@@ -45,12 +41,8 @@ public class Permanencia {
 	private void setTramo(Tramo tramoPasado) {
 		if (tramoPasado == null) {
 			throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");
-		} else if (tramoPasado.equals(Tramo.MANANA)) {
-			this.tramoPermanencia = Tramo.MANANA;
-		} else if (tramoPasado.equals(Tramo.TARDE)) {
-			this.tramoPermanencia = Tramo.TARDE;
 		} else {
-			throw new IllegalArgumentException("El tramo pasado no es valido");
+			this.tramoPermanencia = tramoPasado;
 		}
 	}
 

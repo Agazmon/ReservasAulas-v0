@@ -114,7 +114,7 @@ public class Aulas {
 		for (int i = indice; i < numAulas | !indiceNoSuperaCapacidad(i); i++) {
 			if (indiceNoSuperaTamano(indice)) {
 				if (coleccionAulas[i + 1] != null) {
-					coleccionAulas[i] = new Aula(coleccionAulas[i + 1]);
+					coleccionAulas[i] = coleccionAulas[i + 1];
 					coleccionAulas[i + 1] = null;
 				}
 			}

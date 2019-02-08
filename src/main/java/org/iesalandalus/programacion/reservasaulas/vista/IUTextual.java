@@ -37,7 +37,7 @@ public class IUTextual {
 		try {
 			Aula aula = Consola.leerAula();
 			modelo.insertarAula(aula);
-			System.out.println("La Aula proporcionada ha sido añadida al sistema.");
+			System.out.println("El Aula proporcionada ha sido añadida al sistema.");
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
 		}
@@ -48,7 +48,7 @@ public class IUTextual {
 		try {
 			Aula aula = Consola.leerAula();
 			modelo.borrarAula(aula);
-			System.out.println("La Aula ha sido borrada del sistema");
+			System.out.println("El Aula ha sido borrada del sistema");
 		} catch (OperationNotSupportedException | IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
 		}
@@ -194,17 +194,15 @@ public class IUTextual {
 		if (modelo.getNumReservas() > 0) {
 			if (reservaAula[0] != null) {
 				for (Reserva reserva : reservaAula) {
-					try {
+					if (reserva != null) {
 						System.out.println(reserva.toString());
-					} catch (Exception e) {
-						comenzar();
 					}
 				}
 			} else {
-				System.out.println("No existen reservas para la aula");
+				System.out.println("No existen reservas para el aula.");
 			}
 		} else {
-			System.out.println("No existen reservas para listar actualmente");
+			System.out.println("No existen reservas para listar actualmente.");
 		}
 
 	}
@@ -219,17 +217,15 @@ public class IUTextual {
 				if (modelo.getNumReservas() > 0) {
 					if (reservaProfesor[0] != null) {
 						for (Reserva reserva : reservaProfesor) {
-							try {
+							if (reserva != null) {
 								System.out.println(reserva.toString());
-							} catch (NullPointerException e) {
-								comenzar();
 							}
 						}
 					} else {
-						System.out.println("No existen reservas para el profesor");
+						System.out.println("No existen reservas para el profesor.");
 					}
 				} else {
-					System.out.println("No existen reservas para listar actualmente");
+					System.out.println("No existen reservas para listar actualmente.");
 				}
 			}
 		} catch (IllegalArgumentException e) {
@@ -245,17 +241,15 @@ public class IUTextual {
 			if (modelo.getNumReservas() > 0) {
 				if (reservaPermanencia[0] != null) {
 					for (Reserva reserva : reservaPermanencia) {
-						try {
+						if (reserva != null) {
 							System.out.println(reserva.toString());
-						} catch (Exception e) {
-							comenzar();
 						}
 					}
 				} else {
 					System.out.println("No existen reservas para la permanencia.");
 				}
 			} else {
-				System.out.println("No existen reservas para listar actualmente");
+				System.out.println("No existen reservas para listar actualmente.");
 			}
 		} catch (IllegalArgumentException e) {
 			System.out.println(ERROR + e.getMessage());
